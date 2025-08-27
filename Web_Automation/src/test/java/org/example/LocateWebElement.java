@@ -5,6 +5,8 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class LocateWebElement extends WebSetUp{
 
     @Test
@@ -12,7 +14,11 @@ public class LocateWebElement extends WebSetUp{
 
         browser.get("https://www.daraz.com.bd/");
 
-         WebElement SearchInputBox;
+
+
+
+
+        WebElement SearchInputBox;
 
 
 //      SearchInputBox = browser.findElement(By.id("q"));
@@ -46,12 +52,25 @@ public class LocateWebElement extends WebSetUp{
 
 
 
-        browser.findElement(By.id("anonSignup")).click();                   //SignupTest
-        Thread.sleep(2000);
-//
+//        browser.findElement(By.id("anonSignup")).click();                   //SignupTest
+//        Thread.sleep(2000);
+
  //        SearchInputBox = browser.findElement(By.cssSelector("input[placeholder=\"Please enter your phone number\"]"));        //CSS Locator
 
-        SearchInputBox = browser.findElement(By.xpath("//input[@placeholder=\"Please enter your phone number\"]"));
+//        SearchInputBox = browser.findElement(By.xpath("//input[@placeholder=\"Please enter your phone number\"]"));               //xpath
+
+
+
+
+//        SearchInputBox = browser.findElement(By.cssSelector(".search-box__input--O34g"));
+
+
+//        SearchInputBox = browser.findElement(By.cssSelector("input[class=\"search-box__input--O34g\"][name=\"q\"]"));         //multiple data
+
+//        SearchInputBox = browser.findElement(By.xpath("//div[@class=\"search-box__bar--29h6\"] /input[1]"));      //parent er multiple child thakle   xpath
+
+        SearchInputBox = browser.findElement(By.cssSelector("div.search-box__bar--29h6 > input:nth-of-type(1)"));     //parent er multiple child thakle   css selector
+
 
 
         Thread.sleep(2000);
@@ -59,19 +78,17 @@ public class LocateWebElement extends WebSetUp{
         Thread.sleep(2000);
 
 
+       List<WebElement> AllLinks = browser.findElements(By.xpath("//a"));             // findElements er jnno
 
-
-//        SearchInputBox = browser.findElement(By.cssSelector("input[type=\"text\"]"));
-//        SearchInputBox.sendKeys("akashshom3616@gmail.com");
-//        Thread.sleep(2000);
-
+       for(WebElement link_element:AllLinks){
+           String text = link_element.getText();
+           System.out.println(text);
+       }
 
     }
 
-
-
-
+    
 }
 
 
-////38 min/////
+//// 1.18- min/////
