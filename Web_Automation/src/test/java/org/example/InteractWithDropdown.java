@@ -28,7 +28,19 @@ public class InteractWithDropdown extends WebSetUp{
     }
 
 
-    select.selectByContainsVisibleText("Select");
+
+//    select.selectByVisibleText("Option1");
+//    Thread.sleep(2000);
+//    System.out.println(select.getFirstSelectedOption().getText());
+
+
+
+    select.selectByValue("option2");
+    Thread.sleep(2000);
+    System.out.println(select.getFirstSelectedOption().getText());
+
+
+    select.selectByIndex(0);
     Thread.sleep(2000);
     System.out.println(select.getFirstSelectedOption().getText());
 
@@ -37,4 +49,4 @@ public class InteractWithDropdown extends WebSetUp{
 }
 
 
-//26.49
+//34.41
