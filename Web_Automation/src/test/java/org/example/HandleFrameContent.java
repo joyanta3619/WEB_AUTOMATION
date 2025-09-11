@@ -35,7 +35,16 @@ public class HandleFrameContent extends WebSetUp{
 
 //        browser.switchTo().frame("iframe-name");         //again switch to iframe
 
-        browser.switchTo().frame(0);                        //iframe index number use kore
+//        browser.switchTo().frame(0);                        //iframe index number use kore
+
+
+
+
+        WebElement iFrame = browser.findElement(By.xpath("//iframe[@id='courses-iframe']"));      //iframe er webElwmwnt use kore
+
+        browser.switchTo().frame(iFrame);
+
+
         WebElement  iFreameLogin = browser.findElement(By.xpath("//a[normalize-space()='Login']"));
         System.out.println(iFreameLogin.getText());
 
